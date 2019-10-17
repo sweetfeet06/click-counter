@@ -1,25 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
+import Clicker from './Clicker';
 import logo from './logo.svg';
 import './App.css';
 
-function App() {
+function App(props) {
+  const [clicks, setClicks] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <div>
+        <div onClick={() => {setClicks(clicks + 1)}}>This div has been clicked {clicks} times</div>
+        <Clicker handleClick={(letter) => {console.log(`${letter} clicked`)}} />
+      </div>
   );
 }
 
